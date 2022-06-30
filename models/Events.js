@@ -1,11 +1,17 @@
-class Event {
-    constructor(nome = '', data = Date, tipo = '', local = '') {
-        this.nome = nome
-        this.data = data
-        this.tipo = tipo
-        this.local = local
+import mongoose from 'mongoose'
+
+const eventSchema = new mongoose.Schema(
+    {
+        id: { type:String},
+        titulo: { type: String, required: true },
+        data: { type: Date },
+        local: { type: String }
+    },
+    {
+        versionKey: false
     }
+)
 
-}
+const eventos = mongoose.model("eventos", eventSchema)
 
-export default Event;
+export default eventos;
